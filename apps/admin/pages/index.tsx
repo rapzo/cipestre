@@ -1,4 +1,5 @@
 import { useSession, signIn, signOut } from "next-auth/react"
+
 import styles from './index.module.css';
 
 export function Index() {
@@ -7,10 +8,12 @@ export function Index() {
   return (
     <div className={styles.page}>
       <h1>Hi</h1>
+
       {!session ? (
-        <button onClick={() => signIn()}>Sign in</button>
+        <button onClick={() => signIn("cipestre")}>Sign in</button>
+        // <a href="/api/auth/signin/">Signin?</a>
       ) : (
-        <button onClick={() => signIn()}>Sign out</button>
+        <button onClick={() => signOut()}>Sign out</button>
       )}
     </div>
   );

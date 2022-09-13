@@ -15,7 +15,6 @@ const users = [
 ];
 
 export const authOptions = {
-  // Configure one or more authentication providers
   providers: [
     CredentialsProvider({
       id: 'cipestre',
@@ -39,6 +38,24 @@ export const authOptions = {
       },
     }),
   ],
+  // callbacks: {
+  //   async signIn({ user, account, profile, email, credentials }) {
+  //     return true;
+  //   },
+  //   async redirect({ url, baseUrl }) {
+  //     return baseUrl;
+  //   },
+  //   async session({ session, user, token }) {
+  //     return session;
+  //   },
+  //   async jwt({ token, user, account, profile, isNewUser }) {
+  //     return token;
+  //   },
+  // },
+  // pages: {
+  //   signIn: '/api/auth/signin',
+  //   error: '/api/auth/error',
+  // },
 };
 
 export default NextAuth(authOptions);

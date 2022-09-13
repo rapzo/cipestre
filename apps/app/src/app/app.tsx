@@ -1,13 +1,8 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import styles from './app.module.css';
-import NxWelcome from './nx-welcome';
+import { Authentication } from '@cipestre/authentication';
 
 export function App() {
   return (
-    <>
-      <NxWelcome title="app" />
-      <div />
-    </>
+    <Authentication />
   );
 }
 

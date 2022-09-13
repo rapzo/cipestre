@@ -6,6 +6,7 @@
     "admin-e2e": "apps/admin-e2e",
     "app": "apps/app",
     "app-e2e": "apps/app-e2e",
+    "authentication": "libs/authentication",
     "bridge": "apps/bridge",
     "bridge-e2e": "apps/bridge-e2e"
   }
