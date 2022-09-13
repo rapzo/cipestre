@@ -1,4 +1,5 @@
-import { useSession, signIn, signOut } from "next-auth/react"
+import { useSession, signIn } from "next-auth/react"
+import Dashboard from "../components/dashboard/Dashboard";
 
 import styles from './index.module.css';
 
@@ -11,9 +12,8 @@ export function Index() {
 
       {!session ? (
         <button onClick={() => signIn("cipestre")}>Sign in</button>
-        // <a href="/api/auth/signin/">Signin?</a>
       ) : (
-        <button onClick={() => signOut()}>Sign out</button>
+        <Dashboard />
       )}
     </div>
   );
