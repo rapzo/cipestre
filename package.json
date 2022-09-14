@@ -25,6 +25,7 @@
     "@nrwl/express": "^14.7.5",
     "@nrwl/jest": "14.7.4",
     "@nrwl/linter": "14.7.4",
+    "@nrwl/nest": "^14.7.5",
     "@nrwl/next": "^14.7.5",
     "@nrwl/react": "14.7.4",
     "@nrwl/web": "14.7.4",

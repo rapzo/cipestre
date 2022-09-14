@@ -1,5 +1,6 @@
 import { useSession } from 'next-auth/react';
-import styles from './Dashboard.module.css';
+import MOTD from '../../components/motd/motd';
+import styles from './dashboard.module.css';
 
 /* eslint-disable-next-line */
 export interface DashboardProps {
@@ -15,7 +16,7 @@ export function Dashboard(props: DashboardProps) {
     <div className={styles['container']}>
       <h1>Welcome {user.name}!</h1>
 
-      <p>{props.message}</p>
+      <MOTD message={props.message} />
     </div>
   );
 }

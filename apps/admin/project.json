@@ -28,8 +28,7 @@
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "admin:build",
-        "dev": true,
-        "customServerTarget": "admin:serve-custom-server"
+        "dev": true
       },
       "configurations": {
         "development": {

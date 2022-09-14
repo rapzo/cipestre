@@ -1,5 +1,8 @@
-import NextAuth from 'next-auth';
+import NextAuth, { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
+
+const secret = process.env.SECRET || 'S3cRet';
+const maxAge = 30 * 24 * 60 * 60;
 
 const users = [
   {
@@ -14,7 +17,7 @@ const users = [
   },
 ];
 
-export const authOptions = {
+export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       id: 'cipestre',
@@ -52,10 +55,15 @@ export const authOptions = {
       return token;
     },
   },
-  // pages: {
-  //   signIn: '/api/auth/signin',
-  //   error: '/api/auth/error',
-  // },
+  secret,
+  session: {
+    strategy: 'jwt',
+    maxAge,
+  },
+  jwt: {
+    secret,
+    maxAge,
+  },
 };
 
 export default NextAuth(authOptions);

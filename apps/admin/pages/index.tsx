@@ -1,5 +1,5 @@
 import { useSession, signIn } from "next-auth/react"
-import Dashboard from "../components/dashboard/Dashboard";
+import Dashboard from "./dashboard/dashboard";
 
 import styles from './index.module.css';
 

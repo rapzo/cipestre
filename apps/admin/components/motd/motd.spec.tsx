@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import { Dashboard } from './Dashboard';
+import MOTD from './motd';
 
-describe('Dashboard', () => {
+describe('MOTD', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<Dashboard />);
+    const { baseElement } = render(<MOTD />);
     expect(baseElement).toBeTruthy();
   });
 });

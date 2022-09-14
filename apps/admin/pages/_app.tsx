@@ -7,16 +7,14 @@ import './styles.css';
 
 function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
-    <>
+    <SessionProvider session={session}>
       <Head>
         <title>Welcome to admin!</title>
       </Head>
       <main className="app">
-        <SessionProvider session={session}>
-          <Component {...pageProps} />
-        </SessionProvider>
+        <Component {...pageProps} />
       </main>
-    </>
+    </SessionProvider>
   );
 }
 

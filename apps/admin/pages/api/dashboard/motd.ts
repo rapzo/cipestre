@@ -1,10 +1,19 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import { getToken } from 'next-auth/jwt';
 
 export default async function handler(
-  _req: NextApiRequest,
+  req: NextApiRequest,
   res: NextApiResponse
 ) {
   try {
+    const token = await getToken({ req });
+
+    if (!token) {
+      return res.status(403).json({
+        message: 'forbidden',
+      });
+    }
+
     const response = await fetch('https://api.chucknorris.io/jokes/random');
     const { value } = await response.json();
 
