@@ -8,4 +8,11 @@ describe('Index', () => {
     const { baseElement } = render(<Index />);
     expect(baseElement).toBeTruthy();
   });
+
+  it('motd api', async () => {
+    const response = await fetch('http://localhost:4200/api/')
+    const data = await response.json()
+
+    expect(data).not.toBeFalsy()
+  });
 });

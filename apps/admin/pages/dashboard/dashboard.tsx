@@ -2,7 +2,6 @@ import { useSession } from 'next-auth/react';
 import MOTD from '../../components/motd/motd';
 import styles from './dashboard.module.css';
 
-/* eslint-disable-next-line */
 export interface DashboardProps {
   message?: string
 }
@@ -25,6 +24,7 @@ export async function getServerSideProps(_context) {
   const response = await fetch('https://api.chucknorris.io/jokes/random');
   const { value } = await response.json();
 
+  console.log(value)
   return {
     props: {
       message: value,

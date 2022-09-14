@@ -4,6 +4,7 @@
   "projects": {
     "admin": "apps/admin",
     "admin-e2e": "apps/admin-e2e",
+    "api": "apps/api",
     "app": "apps/app",
     "app-e2e": "apps/app-e2e",
     "authentication": "libs/authentication",

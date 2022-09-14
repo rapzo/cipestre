@@ -5,9 +5,7 @@
   "targets": {
     "build": {
       "executor": "@nrwl/next:build",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
         "root": "apps/admin",
@@ -19,16 +17,15 @@
         },
         "production": {}
       },
-      "dependsOn": [
-        "build-custom-server"
-      ]
+      "dependsOn": ["build-custom-server"]
     },
     "serve": {
       "executor": "@nrwl/next:server",
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "admin:build",
-        "dev": true
+        "dev": true,
+        "proxyConfig": "apps/admin/proxy.conf.json"
       },
       "configurations": {
         "development": {
@@ -49,9 +46,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/apps/admin"
-      ],
+      "outputs": ["coverage/apps/admin"],
       "options": {
         "jestConfig": "apps/admin/jest.config.ts",
         "passWithNoTests": true
@@ -59,13 +54,9 @@
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "apps/admin/**/*.{ts,tsx,js,jsx}"
-        ]
+        "lintFilePatterns": ["apps/admin/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "build-custom-server": {
