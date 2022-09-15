@@ -1,6 +1,10 @@
+import { testDashboardTitleVisible } from '../support/dashboard.po';
 import {
+  getLoginFormPassword,
   getLoginFormPasswordLabel,
+  getLoginFormUsername,
   getLoginFormUsernameLabel,
+  loginButton,
 } from '../support/login.po';
 
 describe('https://cipestre.web.app/', () => {
@@ -15,5 +19,15 @@ describe('https://cipestre.web.app/', () => {
     getLoginFormUsernameLabel().contains('Username');
 
     getLoginFormPasswordLabel().contains('Password');
+  });
+
+  it('Should login successfully', () => {
+    getLoginFormUsername().type('demo');
+
+    getLoginFormPassword().type('demo');
+
+    loginButton().click();
+
+    testDashboardTitleVisible();
   });
 });
