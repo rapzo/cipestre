@@ -3,13 +3,13 @@ import MOTD from '../../components/motd/motd';
 import styles from './dashboard.module.css';
 
 export interface DashboardProps {
-  message?: string
+  message?: string;
 }
 
 export function Dashboard(props: DashboardProps) {
-  const { data: {
-    user,
-  } } = useSession();
+  const {
+    data: { user },
+  } = useSession();
 
   return (
     <div className={styles['container']}>
@@ -24,12 +24,12 @@ export async function getServerSideProps(_context) {
   const response = await fetch('https://api.chucknorris.io/jokes/random');
   const { value } = await response.json();
 
-  console.log(value)
+  console.log(value);
   return {
     props: {
       message: value,
     },
-  }
+  };
 }
 
 export default Dashboard;

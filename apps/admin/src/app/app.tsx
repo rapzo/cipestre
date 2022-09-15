@@ -1,9 +1,7 @@
 import { Authentication } from '@cipestre/authentication';
 
 export function App() {
-  return (
-    <Authentication />
-  );
+  return <Authentication />;
 }
 
 export default App;

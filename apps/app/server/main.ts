@@ -36,11 +36,10 @@ async function main() {
 
   server.listen(port, hostname);
 
-  console.log(`[ ready ] on http://${hostname}:${port}`)
+  console.log(`[ ready ] on http://${hostname}:${port}`);
 }
 
 main().catch((err) => {
   console.error(err);
   process.exit(1);
 });
-

@@ -1,55 +1,63 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/admin",
+  "sourceRoot": "apps/admin/src",
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nrwl/next:build",
+      "executor": "@nrwl/web:webpack",
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "root": "apps/admin",
-        "outputPath": "dist/apps/admin"
+        "compiler": "babel",
+        "outputPath": "dist/apps/admin",
+        "index": "apps/admin/src/index.html",
+        "baseHref": "/",
+        "main": "apps/admin/src/main.tsx",
+        "polyfills": "apps/admin/src/polyfills.ts",
+        "tsConfig": "apps/admin/tsconfig.app.json",
+        "assets": ["apps/admin/src/favicon.ico", "apps/admin/src/assets"],
+        "styles": ["apps/admin/src/styles.css"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
       },
       "configurations": {
         "development": {
-          "outputPath": "apps/admin"
-        },
-        "production": {}
-      },
-      "dependsOn": ["build-custom-server"]
-    },
-    "serve": {
-      "executor": "@nrwl/next:server",
-      "defaultConfiguration": "development",
-      "options": {
-        "buildTarget": "admin:build",
-        "dev": true,
-        "proxyConfig": "apps/admin/proxy.conf.json"
-      },
-      "configurations": {
-        "development": {
-          "buildTarget": "admin:build:development",
-          "dev": true
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
         },
         "production": {
-          "buildTarget": "admin:build:production",
-          "dev": false
+          "fileReplacements": [
+            {
+              "replace": "apps/admin/src/environments/environment.ts",
+              "with": "apps/admin/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
         }
       }
     },
-    "export": {
-      "executor": "@nrwl/next:export",
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "admin:build:production"
-      }
-    },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/admin"],
-      "options": {
-        "jestConfig": "apps/admin/jest.config.ts",
-        "passWithNoTests": true
+        "buildTarget": "admin:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "admin:build:development"
+        },
+        "production": {
+          "buildTarget": "admin:build:production",
+          "hmr": false
+        }
       }
     },
     "lint": {
@@ -59,34 +67,12 @@
         "lintFilePatterns": ["apps/admin/**/*.{ts,tsx,js,jsx}"]
       }
     },
-    "build-custom-server": {
-      "executor": "@nrwl/js:tsc",
-      "defaultConfiguration": "production",
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/admin"],
       "options": {
-        "outputPath": "dist/apps/admin",
-        "main": "apps/admin/server/main.ts",
-        "tsConfig": "apps/admin/tsconfig.server.json",
-        "clean": false,
-        "assets": []
-      },
-      "configurations": {
-        "development": {},
-        "production": {}
-      }
-    },
-    "serve-custom-server": {
-      "executor": "@nrwl/js:node",
-      "defaultConfiguration": "development",
-      "options": {
-        "buildTarget": "admin:build-custom-server"
-      },
-      "configurations": {
-        "development": {
-          "buildTarget": "admin:build-custom-server:development"
-        },
-        "production": {
-          "buildTarget": "admin:build-custom-server:production"
-        }
+        "jestConfig": "apps/admin/jest.config.ts",
+        "passWithNoTests": true
       }
     }
   },

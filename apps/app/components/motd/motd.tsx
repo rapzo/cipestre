@@ -2,7 +2,7 @@ import styles from './motd.module.css';
 
 /* eslint-disable-next-line */
 export interface MOTDProps {
-  message: string
+  message: string;
 }
 
 export function MOTD({ message }: MOTDProps) {

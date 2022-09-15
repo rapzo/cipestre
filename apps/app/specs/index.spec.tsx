@@ -10,9 +10,9 @@ describe('Index', () => {
   });
 
   it('motd api', async () => {
-    const response = await fetch('http://localhost:4200/api/')
-    const data = await response.json()
+    const response = await fetch('http://localhost:4200/api/');
+    const data = await response.json();
 
-    expect(data).not.toBeFalsy()
+    expect(data).not.toBeFalsy();
   });
 });

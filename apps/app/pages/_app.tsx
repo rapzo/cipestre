@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { SessionProvider } from "next-auth/react"
+import { SessionProvider } from 'next-auth/react';
 
 import type { AppProps } from 'next/app';
 
@@ -9,7 +9,7 @@ function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
     <SessionProvider session={session}>
       <Head>
-        <title>Welcome to admin!</title>
+        <title>Welcome to app!</title>
       </Head>
       <main className="app">
         <Component {...pageProps} />
