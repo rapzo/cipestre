@@ -1,5 +1,3 @@
-import { getJestProjects } from '@nrwl/jest';
+// import { Config } from '@jest/types';
 
-export default {
-  projects: getJestProjects(),
-};
+export default {};
