@@ -7,5 +7,6 @@ export default defineConfig({
   e2e: {
     ...preset,
     specPattern: `${__dirname}/src/e2e/**/*.spec.ts`,
+    // baseUrl: 'https://cipestre.web.app/',
   },
 });
