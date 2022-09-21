@@ -1,5 +1,13 @@
 # Cipestre End-to-end
 
-## Run tests
+## Open Cypress Dashboard
 
-`npx nx run cipestre:e2e`
+```shell
+yarn start
+```
+
+## Run tests in the command line
+
+```shell
+yarn test
+```
