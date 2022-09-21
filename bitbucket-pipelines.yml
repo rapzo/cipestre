@@ -16,6 +16,8 @@ pipelines:
         caches:
           - yarn
           - cypress
+        script:
+          - yarn test
 
 definitions:
   caches:
