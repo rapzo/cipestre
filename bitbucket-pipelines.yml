@@ -11,13 +11,7 @@ pipelines:
         script:
           - yarn install --frozen-lockfile
           - yarn build
-    - step:
-        name: Run Cypress tests
-        caches:
-          - yarn
-          - cypress
-        script:
-          - yarn cypress run
+          - yarn test
 
 definitions:
   caches:
