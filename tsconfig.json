@@ -19,5 +19,5 @@
     "outDir": "./dist/out-tsc",
     "allowJs": true
   },
-  "exclude": ["node_modules", "tmp", "dist"]
+  "exclude": ["node_modules", "dist", "jest.config.ts", "jest.preset.js"]
 }
