@@ -1,0 +1,10 @@
+image: node:latest
+
+pipelines:
+  default:
+    - step:
+        script:
+          # install dependencies
+          - yarn install --frozen-lockfile
+          # start the server in the background
+          - yarn start
