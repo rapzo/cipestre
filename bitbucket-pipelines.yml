@@ -1,0 +1,19 @@
+image: cypress/browsers:node16.14.2-slim-chrome103-ff102
+
+pipelines:
+  default:
+    - step:
+        name: Install dependencies and build
+        caches:
+          - node
+          - yarn
+          - cypress
+        script:
+          - yarn install --frozen-lockfile
+          - yarn build
+          - yarn test
+
+definitions:
+  caches:
+    yarn: $HOME/.cache
+    cypress: $HOME/.cache/Cypress
