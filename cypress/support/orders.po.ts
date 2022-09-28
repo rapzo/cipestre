@@ -37,14 +37,4 @@ export const totalPrice = () =>
     expect(allTotal.toFixed(2)).to.equal(Number(total).toFixed(2));
   });
 
-// export const totalTaxPrice = () =>
-//   cy
-//     .get(':nth-child(2) > .css-zegsmg')
-//     .get('.css-aczn5w')
-//     .then(($btn) => {
-//       // store the button's text
-//       const txt = $btn.text();
-//       cy.log(txt);
-//     });
-
 export const totalOrder = () => cy.get('.css-aczn5w');
