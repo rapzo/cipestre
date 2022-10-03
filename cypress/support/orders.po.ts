@@ -1,3 +1,6 @@
+export let informationOrderPage = [];
+export let informationCancelPage = [];
+
 export const getOrderPage = () => cy.get('.MuiList-root > [href="#/commands"]');
 
 export const firstOrder = () =>
@@ -6,6 +9,8 @@ export const firstOrder = () =>
 export const statusOrder = () => cy.get('#status');
 
 export const deliveryOrder = () => cy.get('[data-value="delivered"]');
+
+export const cancelOrder = () => cy.get('[data-value="cancelled"]');
 
 export const saveDeliveryStatus = () =>
   cy.get('.RaToolbar-defaultToolbar > .MuiButton-contained');
@@ -38,3 +43,78 @@ export const totalPrice = () =>
   });
 
 export const totalOrder = () => cy.get('.css-aczn5w');
+
+export const cancellOrderTab = () =>
+  cy.get('.MuiTabs-flexContainer > :nth-child(3)');
+
+/////////////////////////////////////// order page
+
+export let infoOrderDate = () =>
+  cy
+    .get(':nth-child(1) > .column-date > .MuiTypography-root')
+    .invoke('text')
+    .then((text) => {
+      informationOrderPage.push(text);
+    });
+
+export let infoOrderReference = () =>
+  cy
+    .get(':nth-child(1) > .column-reference > .MuiTypography-root')
+    .invoke('text')
+    .then((text) => {
+      informationOrderPage.push(text);
+    });
+
+export let infoOrderName = () =>
+  cy
+    .get(
+      ':nth-child(1) > :nth-child(4) > .css-4a8j24 > .MuiTypography-inherit > .MuiTypography-root'
+    )
+    .invoke('text')
+    .then((text) => {
+      informationOrderPage.push(text);
+    });
+
+export let infoOrderTotal = () =>
+  cy
+    .get(':nth-child(1) > .column-total > .MuiTypography-root')
+    .invoke('text')
+    .then((text) => {
+      informationOrderPage.push(text);
+    });
+
+/////////////////////////////////////// Cancel page
+
+export let infoCancelDate = () =>
+  cy
+    .get(':nth-child(1) > .column-date > .MuiTypography-root')
+    .invoke('text')
+    .then((text) => {
+      informationCancelPage.push(text);
+    });
+
+export let infoCancelReference = () =>
+  cy
+    .get(':nth-child(1) > .column-reference > .MuiTypography-root')
+    .invoke('text')
+    .then((text) => {
+      informationCancelPage.push(text);
+    });
+
+export let infoCancelName = () =>
+  cy
+    .get(
+      ':nth-child(1) > :nth-child(4) > .css-4a8j24 > .MuiTypography-inherit > .MuiTypography-root'
+    )
+    .invoke('text')
+    .then((text) => {
+      informationCancelPage.push(text);
+    });
+
+export let infoCancelTotal = () =>
+  cy
+    .get(':nth-child(1) > .column-total > .MuiTypography-root')
+    .invoke('text')
+    .then((text) => {
+      informationCancelPage.push(text);
+    });
